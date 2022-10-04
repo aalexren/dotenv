@@ -3,12 +3,12 @@
 
 ## Fish shell
 - [Make default shell](https://stackoverflow.com/questions/453236/how-can-i-set-my-default-shell-on-a-mac-e-g-to-fish)
-- [Fisher plugin manager]()
-- [Git plugin]()
-- [Tide theme like powerline10k]()
-- [Z (to easy navigate)]()
-- [Sponge to clear unrelated history]()
-- [Dracula colors]()
+- [Fisher plugin manager](https://github.com/jorgebucaran/fisher)
+- [Git plugin](https://github.com/jhillyerd/plugin-git) (install using fisher, not omf)
+- [Tide theme like powerline10k](https://github.com/IlanCosman/tide)
+- [Z (to easy navigate)](https://github.com/rupa/z)
+- [Sponge to clear unrelated history](https://github.com/meaningful-ooo/sponge)
+- [Dracula colors](https://github.com/dracula/fish)
 - [fish-exa (beauty ls and exa)](https://github.com/gazorby/fish-exa)
 - [Bat (better cat command)](https://github.com/sharkdp/bat)
 - [fd (easy find command)](https://github.com/sharkdp/fd)
