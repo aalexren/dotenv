@@ -1,5 +1,5 @@
 # self-config
-[Self] My configs for the environment
+[Me] My configs for the environment
 
 ## Fish shell
 - [Make default shell](https://stackoverflow.com/questions/453236/how-can-i-set-my-default-shell-on-a-mac-e-g-to-fish)
