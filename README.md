@@ -1,4 +1,4 @@
-# self-config
+# me-config
 [Me] My configs for the environment
 
 ## Fish shell
