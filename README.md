@@ -2,7 +2,8 @@
 [Me] My configs for the environment
 
 ## Mac terminal shortcuts
-![terminal shortcuts](./support/terminal_shortcuts.png)
+![terminal shortcuts](./support/terminal_shortcuts.png)  
+[*https://stackoverflow.com/a/16687377/7502538*](https://stackoverflow.com/a/16687377/7502538)
 
 ## Fish shell
 - [Make default shell](https://stackoverflow.com/questions/453236/how-can-i-set-my-default-shell-on-a-mac-e-g-to-fish)
