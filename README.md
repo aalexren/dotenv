@@ -1,6 +1,9 @@
 # me-config
 [Me] My configs for the environment
 
+## Mac terminal shortcuts
+![terminal shortcuts](./support/terminal_shortcuts.png)
+
 ## Fish shell
 - [Make default shell](https://stackoverflow.com/questions/453236/how-can-i-set-my-default-shell-on-a-mac-e-g-to-fish)
 - [Fisher plugin manager](https://github.com/jorgebucaran/fisher)
