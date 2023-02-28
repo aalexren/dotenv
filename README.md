@@ -5,6 +5,9 @@
 ![terminal shortcuts](./support/terminal_shortcuts.png)  
 [*https://stackoverflow.com/a/16687377/7502538*](https://stackoverflow.com/a/16687377/7502538)
 
+## iterm2
+- [Dracula theme](https://draculatheme.com/iterm)
+
 ## ZSH
 - [oh-my-zsh plugin](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 - [auto suggestions plugin](https://github.com/zsh-users/zsh-autosuggestions)
