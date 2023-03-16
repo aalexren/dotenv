@@ -10,6 +10,7 @@
 
 ## ZSH
 - [oh-my-zsh plugin](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
+- - [aliases (acs)](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)
 - [auto suggestions plugin](https://github.com/zsh-users/zsh-autosuggestions)
 - [powerline10k theme](https://github.com/romkatv/powerlevel10k)
 
