@@ -12,8 +12,11 @@
 
 ## Terminal
 
+[Best CLI tools](https://habr.com/ru/articles/711968/)
+
 ### iTerm2
 - [Dracula theme](https://draculatheme.com/iterm)
+- [exiftool – change meta data](https://github.com/exiftool/exiftool)
 
 ### ZSH
 - [oh-my-zsh plugin](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
