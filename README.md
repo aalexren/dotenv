@@ -1,5 +1,8 @@
-# me-config
-[Me] My configs for the environment
+# My config files
+Config files for language-specific development and for the environment in general.
+
+:snake: [python](./python)
+:apple: [macOS](./dot)
 
 ## macOS specific
 

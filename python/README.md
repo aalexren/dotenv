@@ -1,0 +1,3 @@
+- [pylintrc](https://github.com/google/styleguide/blob/gh-pages/pyguide.md): originally from Google github repository
+- [editorconfig](https://editorconfig.org/): unified config for most of the IDE and code editors
+- [ruff linter and formatter](https://docs.astral.sh/ruff/): rust-based complination of flake8, pyflakes, pycodestyle, black etc.
