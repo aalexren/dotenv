@@ -1,7 +1,7 @@
 # My config files
 Config files for language-specific development and for the environment in general.
 
-:snake: [python](./python)
+:snake: [python](./python)  
 :apple: [macOS](./dot)
 
 ## macOS specific
