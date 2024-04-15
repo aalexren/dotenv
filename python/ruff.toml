@@ -49,6 +49,12 @@ unfixable = []
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
+# A list of rule codes or prefixes to enable, in addition to those specified by select.
+extend-select = ["I"]
+
+[lint.isort]
+case-sensitive = true
+
 [format]
 # Like Black, use double quotes for strings.
 quote-style = "double"
