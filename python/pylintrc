@@ -88,6 +88,7 @@ disable=R,
         long-suffix,
         map-builtin-not-iterating,
         misplaced-comparison-constant,
+        missing-class-docstring,
         missing-function-docstring,
         missing-module-docstring,
         metaclass-assignment,
@@ -398,4 +399,3 @@ valid-classmethod-first-arg=cls,
 
 # List of valid names for the first argument in a metaclass class method.
 valid-metaclass-classmethod-first-arg=mcs
-
