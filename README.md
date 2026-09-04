@@ -3,7 +3,7 @@
 Config files for language-specific development and for the environment in general.
 
 - :snake: **[Python](./python)** — linting (pylintrc, ruff.toml), Makefile
-- :computer: **[macOS / Terminal](./dot)** — iTerm2 profile, `.zshrc`, shell config
+- :apple: **[macOS / Terminal](./dot)** — iTerm2 profile, `.zshrc`, shell config
 - :robot: **[LLM / Pi Agent](./llm)** — Pi Coding Agent extensions, settings, shell integration
 - :floppy_disk: **[DBeaver](./dbeaver)** — SQL client settings
 
