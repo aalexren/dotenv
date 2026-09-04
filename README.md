@@ -3,6 +3,7 @@ Config files for language-specific development and for the environment in genera
 
 :snake: [python](./python)  
 :apple: [macOS](./dot)
+:robot: [LLM / Pi Agent](./llm)
 
 ## macOS specific
 
