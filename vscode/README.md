@@ -7,8 +7,8 @@ User settings and extension list for VS Code, exported from
 
 | File | Source | Notes |
 |---|---|---|
-| [`settings.json`](./settings.json) | `…/Code/User/settings.json` | `yaml.schemas` block removed (Continue-specific, machine-pinned `file:///` paths; Continue excluded from extensions list). |
-| [`extensions.txt`](./extensions.txt) | `code --list-extensions` | 31 extensions. Dropped: `continue.continue` (config kept under `~/.continue/` instead) and unused themes `catppuccin.catppuccin-vsc`, `panxiaoan.themes-falcon-vscode` — only themes referenced in `settings.json` are kept. |
+| [`settings.json`](./settings.json) | `…/Code/User/settings.json` | `yaml.schemas` block removed (machine-pinned `file:///` absolute paths). |
+| [`extensions.txt`](./extensions.txt) | `code --list-extensions` | 31 extensions — only themes referenced in `settings.json` are kept; unused themes (`catppuccin.catppuccin-vsc`, `panxiaoan.themes-falcon-vscode`) dropped. |
 
 ## Install
 
