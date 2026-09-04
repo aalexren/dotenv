@@ -66,7 +66,7 @@ Source: [StackOverflow answer](https://stackoverflow.com/a/16687377/7502538)
 
 </details>
 
-*Image also available: [`support/terminal_shortcuts.png`](./support/terminal_shortcuts.png)*
+*Image also available: [`misc/terminal_shortcuts.png`](./misc/terminal_shortcuts.png)*
 
 ### iTerm2
 

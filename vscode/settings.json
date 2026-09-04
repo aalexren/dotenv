@@ -1,0 +1,232 @@
+{
+    // ═══════════════════════════════════════════════════════════════
+    // 📁 FILE & WORKSPACE
+    // ═══════════════════════════════════════════════════════════════
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/__pycache__": true,
+        "**/.cache": true,
+        "**/.idea": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
+        "**/.venv": true,
+        "**/.coverage": true,
+        "**/*.py[co]": true,
+        "**/htmlcoverage": true,
+        "**/docs/build": true
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 1,
+    "explorer.compactFolders": false,
+    // ═══════════════════════════════════════════════════════════════
+    // 📝 EDITOR CORE
+    // ═══════════════════════════════════════════════════════════════
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'JetBrains Mono NL', Menlo, Monaco, 'Courier New', monospace",
+    "editor.lineHeight": 1.4,
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80,
+        110
+    ],
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.cursorSurroundingLines": 3,
+    "editor.cursorSurroundingLinesStyle": "all",
+    "editor.showFoldingControls": "always",
+    "editor.autoSurround": "never",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingOvertype": "never",
+    "editor.tabCompletion": "on",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.localityBonus": true,
+    "editor.pasteAs.preferences": [
+        "text.plain"
+    ],
+    "editor.gotoLocation.multipleDeclarations": "gotoAndPeek",
+    "editor.gotoLocation.multipleDefinitions": "gotoAndPeek",
+    "editor.gotoLocation.multipleImplementations": "gotoAndPeek",
+    "editor.gotoLocation.multipleReferences": "gotoAndPeek",
+    "editor.gotoLocation.multipleTypeDefinitions": "gotoAndPeek",
+    "editor.largeFileOptimizations": false,
+    "editor.accessibilitySupport": "off",
+    // ═══════════════════════════════════════════════════════════════
+    // 🎨 APPEARANCE & WORKBENCH UI
+    // ═══════════════════════════════════════════════════════════════
+    "breadcrumbs.enabled": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "GitHub Light Default",
+    "workbench.preferredDarkColorTheme": "Nord",
+    "workbench.colorCustomizations": {
+        // DEPRECATED: "statusBar.background": "#0074cf"
+        "[GitHub Light Default]": {
+            "statusBar.background": "#fffdf7",
+            "statusBar.noFolderBackground": "#fff9e6",
+            "statusBar.foreground": "#6b4f00",
+            "statusBar.debuggingBackground": "#fff1e6",
+            "statusBar.debuggingForeground": "#b34700",
+            "statusBarItem.hoverBackground": "#e8f7ee",
+            "statusBarItem.activeBackground": "#d4edda",
+            "statusBarItem.hoverForeground": "#0f5d2c",
+            "editorRuler.foreground": "#7cb34249"
+        },
+        "[Nord]": {
+            "statusBar.background": "#434c5e",
+            "statusBar.noFolderBackground": "#3b4252",
+            "statusBar.foreground": "#a3be8c",
+            "statusBar.debuggingBackground": "#3d2e26",
+            "statusBar.debuggingForeground": "#ebcb8b",
+            "statusBarItem.hoverBackground": "#3b4252",
+            "statusBarItem.activeBackground": "#2e3440",
+            "statusBarItem.hoverForeground": "#ebcb8b",
+            "editorRuler.foreground": "#a3be8c44"
+        }
+    },
+    "workbench.activityBar.location": "top",
+    "workbench.sideBar.location": "right",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.tabSizing": "fit",
+    "workbench.editor.pinnedTabSizing": "shrink",
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.openPositioning": "right",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 5,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.iconTheme": "bearded-icons",
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "window.commandCenter": false,
+    "window.clickThroughInactive": false,
+    "window.newWindowDimensions": "maximized",
+    // ═══════════════════════════════════════════════════════════════
+    // 🐍 PYTHON & LANGUAGE ANALYSIS
+    // ═══════════════════════════════════════════════════════════════
+    "[python]": {
+        "breadcrumbs.showConstants": true,
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit"
+        }
+    },
+    "python.languageServer": "None",
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.generateWithTypeAnnotation": true,
+    "python.analysis.languageServerMode": "full",
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "sklearn",
+            "depth": 2
+        },
+        {
+            "name": "matplotlib",
+            "depth": 2
+        },
+        {
+            "name": "scipy",
+            "depth": 2
+        },
+        {
+            "name": "django",
+            "depth": 2
+        },
+        {
+            "name": "flask",
+            "depth": 2
+        },
+        {
+            "name": "fastapi",
+            "depth": 2
+        }
+    ],
+    "python.analysis.typeEvaluation.deprecateTypingAliases": true,
+    "python.analysis.typeEvaluation.enableReachabilityAnalysis": true,
+    "python.analysis.typeEvaluation.strictDictionaryInference": true,
+    "python.analysis.typeEvaluation.strictListInference": true,
+    "python.analysis.typeEvaluation.strictSetInference": true,
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.experiments.enabled": false,
+    "python.pyrefly.typeCheckingMode": "strict",
+    // ═══════════════════════════════════════════════════════════════
+    // 🧪 LINTING & FORMATTING
+    // ═══════════════════════════════════════════════════════════════
+    "ruff.logLevel": "info",
+    "ruff.configurationPreference": "filesystemFirst",
+    "ruff.configuration": {
+        "format": {
+            "quote-style": "single"
+        }
+    },
+    "ruff.format.backend": "uv",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    // ═══════════════════════════════════════════════════════════════
+    // 💬 TERMINAL & SHELL
+    // ═══════════════════════════════════════════════════════════════
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.defaultLocation": "view",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    // ═══════════════════════════════════════════════════════════════
+    // 🔍 SEARCH & NAVIGATION
+    // ═══════════════════════════════════════════════════════════════
+    "search.quickAccess.preserveInput": true,
+    "search.quickOpen.history.filterSortOrder": "recency",
+    // ═══════════════════════════════════════════════════════════════
+    // 🧩 EXTENSIONS & INTEGRATIONS
+    // ═══════════════════════════════════════════════════════════════
+    "gitlens.statusBar.enabled": false,
+    "gitlens.launchpad.indicator.enabled": false,
+    "gitlens.graph.statusBar.enabled": false,
+    "git.blame.statusBarItem.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "chat.disableAIFeatures": true,
+    // ═══════════════════════════════════════════════════════════════
+    // 🔐 TELEMETRY & PRIVACY
+    // ═══════════════════════════════════════════════════════════════
+    "telemetry.telemetryLevel": "crash",
+    // ═══════════════════════════════════════════════════════════════
+    // 📓 NOTEBOOKS
+    // ═══════════════════════════════════════════════════════════════
+    "notebook.showFoldingControls": "always",
+    "notebook.lineNumbers": "on"
+}
