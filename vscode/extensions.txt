@@ -6,7 +6,6 @@ eamodio.gitlens
 editorconfig.editorconfig
 franneck94.vscode-python-dev-extension-pack
 github.github-vscode-theme
-hogashi.crontab-syntax-highlight
 llvm-vs-code-extensions.vscode-clangd
 mechatroner.rainbow-csv
 meta.pyrefly
@@ -14,10 +13,8 @@ miguelsolorio.fluent-icons
 mikestead.dotenv
 mrinmoybanik.zst-stream-viewer
 ms-python.debugpy
-ms-python.pylint
 ms-python.python
 ms-python.vscode-pylance
-ms-python.vscode-python-envs
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers

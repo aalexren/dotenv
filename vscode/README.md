@@ -53,8 +53,6 @@ xargs -L1 code --uninstall-extension < vscode/extensions.txt
 | [ms-python.python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Core Python support |
 | [ms-python.vscode-pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) | Python language server |
 | [ms-python.debugpy](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) | Python debugger |
-| [ms-python.pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint) | Pylint integration |
-| [ms-python.vscode-python-envs](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) | Python environment manager |
 | [charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) | Python linter & formatter |
 | [meta.pyrefly](https://marketplace.visualstudio.com/items?itemName=meta.pyrefly) | Python type checker |
 | [franneck94.vscode-python-dev-extension-pack](https://marketplace.visualstudio.com/items?itemName=franneck94.vscode-python-dev-extension-pack) | Python dev extension pack |
@@ -78,7 +76,6 @@ xargs -L1 code --uninstall-extension < vscode/extensions.txt
 | [mikestead.dotenv](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) | `.env` syntax highlighting |
 | [editorconfig.editorconfig](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig) | EditorConfig support |
 | [llvm-vs-code-extensions.vscode-clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) | C/C++ language server |
-| [hogashi.crontab-syntax-highlight](https://marketplace.visualstudio.com/items?itemName=hogashi.crontab-syntax-highlight) | Crontab syntax |
 
 ### Data viewers
 
