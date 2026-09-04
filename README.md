@@ -13,14 +13,58 @@ Config files for language-specific development and for the environment in genera
 
 ### macOS
 
-#### Terminal shortcuts
-
-![terminal shortcuts](./support/terminal_shortcuts.png)  
-[*https://stackoverflow.com/a/16687377/7502538*](https://stackoverflow.com/a/16687377/7502538)
-
 #### System information
 
 - [Show RAM utilization info: vm_stat, top](https://gist.github.com/aalexren/4dba2b850928077e41d3ee2840a15e5b)
+
+#### Terminal shortcuts
+
+<details>
+<summary>macOS Terminal keyboard shortcuts (click to expand)</summary>
+
+Source: [StackOverflow answer](https://stackoverflow.com/a/16687377/7502538)
+
+**Cursor movement**
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl + A` | Move to beginning of line |
+| `Ctrl + E` | Move to end of line |
+| `Ctrl + B` | Move back one character |
+| `Ctrl + F` | Move forward one character |
+| `Alt + B` | Move back one word |
+| `Alt + F` | Move forward one word |
+| `Ctrl + Left` | Move to beginning of line |
+| `Ctrl + Right` | Move to end of line |
+
+**Editing**
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl + D` | Delete character under cursor |
+| `Ctrl + H` | Delete character before cursor |
+| `Ctrl + W` | Delete word before cursor |
+| `Alt + D` | Delete word after cursor |
+| `Ctrl + K` | Delete to end of line |
+| `Ctrl + U` | Delete to beginning of line |
+| `Ctrl + T` | Transpose characters |
+
+**History & process control**
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl + R` | Reverse search history |
+| `Ctrl + P` | Previous command |
+| `Ctrl + N` | Next command |
+| `Ctrl + L` | Clear screen |
+| `Ctrl + C` | Interrupt current process |
+| `Ctrl + Z` | Suspend current process |
+| `Ctrl + D` | Exit / send EOF |
+| `Tab` | Autocomplete |
+
+</details>
+
+*Image also available: [`support/terminal_shortcuts.png`](./support/terminal_shortcuts.png)*
 
 ### iTerm2
 
