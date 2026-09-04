@@ -36,6 +36,9 @@ Profile exported in [`dot/iterm2.json`](./dot/iterm2.json) (import via iTerm2 �
 | Visual bell | enabled |
 | Transparency | none (opaque) |
 | Active color preset | OneHalfLight |
+| Auto theme switching | enabled — profile carries light + dark variants (27 keys each), follows macOS appearance |
+
+The profile embeds **both light and dark color variants** (keys like `Ansi 0 Color (Light)` / `Ansi 0 Color (Dark)`). iTerm2 swaps them automatically when macOS switches between Light and Dark mode — no manual switching needed.
 
 #### Fonts
 
@@ -57,6 +60,8 @@ Exported as `.itermcolors` in [`dot/themes/`](./dot/themes) (import via iTerm2 �
 - [`OneHalfLight.itermcolors`](./dot/themes/OneHalfLight.itermcolors) — active preset (light)
 - [`Dracula.itermcolors`](./dot/themes/Dracula.itermcolors) — dark
 - [`GruvboxLight.itermcolors`](./dot/themes/GruvboxLight.itermcolors) — light, warm
+
+These are the saved presets. The **auto light/dark switching** lives inside the profile itself (`dot/iterm2.json`) via the `(Light)`/`(Dark)` variant keys — importing the profile preserves the automatic switching.
 
 ### Homebrew
 
