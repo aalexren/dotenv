@@ -2,38 +2,46 @@
 
 Config files for language-specific development and for the environment in general.
 
-| | Section |
-|---|---|
-| :snake: | [Python](./python) |
-| :apple: | [macOS / Terminal](./dot) |
-| :robot: | [LLM / Pi Agent](./llm) |
-| :database: | [DBeaver](./dbeaver) |
+- :snake: **[Python](./python)** — linting (pylintrc, ruff.toml), Makefile
+- :computer: **[macOS / Terminal](./dot)** — iTerm2 profile, `.zshrc`, shell config
+- :robot: **[LLM / Pi Agent](./llm)** — Pi Coding Agent extensions, settings, shell integration
+- :floppy_disk: **[DBeaver](./dbeaver)** — SQL client settings
 
 ---
 
-## macOS specific
+## System
 
-### Terminal shortcuts
+### macOS
+
+#### Terminal shortcuts
 
 ![terminal shortcuts](./support/terminal_shortcuts.png)  
 [*https://stackoverflow.com/a/16687377/7502538*](https://stackoverflow.com/a/16687377/7502538)
 
-### System information
+#### System information
 
 - [Show RAM utilization info: vm_stat, top](https://gist.github.com/aalexren/4dba2b850928077e41d3ee2840a15e5b)
 
----
-
-## Terminal
-
-[Best CLI tools](https://habr.com/ru/articles/711968/)
-
 ### iTerm2
+
+Profile exported in [`dot/iterm2.json`](./dot/iterm2.json) (import via iTerm2 → Settings → Profiles → Other Actions → Import JSON Profiles).
+
+| Setting | Value |
+|---|---|
+| Terminal type | `xterm-256color` |
+| Normal font | MesloLGS NF Regular 13 |
+| Non-ASCII font | Monaco 12 |
+| Window | 100 × 30 |
+| Bold font | enabled |
+| Visual bell | enabled |
+| Transparency | none (opaque) |
 
 - [Dracula theme](https://draculatheme.com/iterm)
 - [exiftool — change meta data](https://github.com/exiftool/exiftool)
 
 ### Homebrew
+
+[Best CLI tools](https://habr.com/ru/articles/711968/) (overview, in Russian)
 
 | Formula | What it does |
 |---|---|
@@ -58,13 +66,19 @@ Config files for language-specific development and for the environment in genera
 | [lazygit](https://github.com/jesseduffield/lazygit) | Terminal UI for Git |
 | [cloc](https://github.com/AlDanial/cloc) | Count lines of code by language |
 
+---
+
+## Shell
+
 ### ZSH
+
+Config in [`dot/.zshrc`](./dot/.zshrc) — Powerlevel10k theme, oh-my-zsh, syntax highlighting, autosuggestions.
 
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) — plugin manager
 - [aliases (acs)](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases) — handy alias listing
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) — theme
 
-#### oh-my-zsh plugins (active in [`dot/.zshrc`](./dot/.zshrc))
+#### oh-my-zsh plugins (active)
 
 - [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) — git shorthand aliases
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — fish-like highlighting
@@ -86,7 +100,7 @@ Config files for language-specific development and for the environment in genera
 - [Make default shell](https://stackoverflow.com/questions/453236/how-can-i-set-my-default-shell-on-a-mac-e-g-to-fish)
 - [Fisher plugin manager](https://github.com/jorgebucaran/fisher)
 - [Git plugin](https://github.com/jhillyerd/plugin-git) (install using fisher, not omf)
-- [Tide theme like powerline10k](https://github.com/IlanCosman/tide)
+- [Tide theme like powerlevel10k](https://github.com/IlanCosman/tide)
 - [Z (to easy navigate)](https://github.com/rupa/z)
 - [Sponge to clear unrelated history](https://github.com/meaningful-ooo/sponge)
 - [Dracula colors](https://github.com/dracula/fish)
@@ -95,10 +109,10 @@ Config files for language-specific development and for the environment in genera
 - [fd (easy find command)](https://github.com/sharkdp/fd)
 </details>
 
-### Some LSCOLORS AND LS_COLORS
+### Colors
 
-- [Interactive colorized](https://geoff.greer.fm/lscolors/)
-- [Some help github gist](https://gist.github.com/aalexren/f840430608e80f1cdbf466a0c585f45e)
+- [Interactive LSCOLORS / LS_COLORS](https://geoff.greer.fm/lscolors/)
+- [GitHub gist — color help](https://gist.github.com/aalexren/f840430608e80f1cdbf466a0c585f45e)
 
 ---
 
