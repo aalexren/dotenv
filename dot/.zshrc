@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases git zsh-syntax-highlighting zsh-aliases-eza z)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,8 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL="en_US.UTF-8"
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -113,3 +112,53 @@ export LC_ALL="en_US.UTF-8"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/chernitca_aa/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+export PATH="$HOME/.docker/bin:$PATH"
+
+# OpenClaw Completion
+source "/Users/chernitca_aa/.openclaw/completions/openclaw.zsh"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+
+# >>> pi tool-excluder >>>
+# Inject --exclude-tools for agent sessions to cut ~4.5K tool tokens.
+# Bypassed for subcommands (install/list/auth/...) and info flags (--version/--list-models).
+# Edit the list below, or disable per-invocation:  PI_EXCLUDE_TOOLS="" pi ...
+# Or use pi-full for a one-off full-tools session.
+PI_EXCLUDE_TOOLS_DEFAULT="ctx_purge,ctx_insight,ctx_upgrade,ctx_doctor,ctx_stats,pi_lens_activate_tools,project_report,read_enclosing,lens_diagnostics"
+function pi() {
+	local exclude="${PI_EXCLUDE_TOOLS-$PI_EXCLUDE_TOOLS_DEFAULT}"
+	# Subcommands that don't accept --exclude-tools.
+	case "$1" in
+		install|remove|uninstall|update|list|auth|config|help)
+			command pi "$@"; return $? ;;
+	esac
+	# Info flags.
+	case "$1" in
+		--version|-v|--help|-h|--list-models)
+			command pi "$@"; return $? ;;
+	esac
+	# Respect an explicit tool-control flag from the user.
+	local a
+	for a in "$@"; do
+		case "$a" in
+			--exclude-tools|--no-tools|--tools|-xt|--no-builtin-tools|-nt|-nbt)
+				command pi "$@"; return $? ;;
+		esac
+	done
+	# Empty list = disabled.
+	[[ -z "$exclude" ]] && { command pi "$@"; return $? }
+	command pi --exclude-tools "$exclude" "$@"
+}
+function pi-full() { PI_EXCLUDE_TOOLS="" command pi "$@"; }
+# <<< pi tool-excluder <<<
