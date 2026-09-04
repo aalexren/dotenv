@@ -116,20 +116,6 @@ source $ZSH/oh-my-zsh.sh
 fpath=(/Users/chernitca_aa/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
-# End of Docker CLI completions
-export PATH="$HOME/.docker/bin:$PATH"
-
-# OpenClaw Completion
-source "/Users/chernitca_aa/.openclaw/completions/openclaw.zsh"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
-
-# >>> grok installer >>>
-export PATH="$HOME/.grok/bin:$PATH"
-fpath=(~/.grok/completions/zsh $fpath)
-autoload -Uz compinit && compinit -C
-# <<< grok installer <<<
-
 # >>> pi tool-excluder >>>
 # Inject --exclude-tools for agent sessions to cut ~4.5K tool tokens.
 # Bypassed for subcommands (install/list/auth/...) and info flags (--version/--list-models).
