@@ -105,6 +105,7 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 | Package | Source | What it does |
 |---|---|---|
+| [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | custom (global) | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes. Install: `cp -r pi-compaction-control ~/.pi/agent/extensions/` or `pi install npm:pi-compaction-control` |
 | [pi-lens](https://github.com/apmantza/pi-lens) | Homebrew | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
 | [context-mode](https://github.com/mksglu/context-mode) | Homebrew | Run code/commands over large outputs without flooding context; persistent KB |
 | [pi-web-access](https://github.com/nicobailon/pi-web-access) | Homebrew | Web search, fetch, claim verification, content retrieval |
@@ -120,29 +121,7 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 These extensions register ~31 tools total (~16K tokens of tool schemas per request). The shell function below excludes rarely-used ones to save ~3.5K tokens.
 
----
-
-## Custom extension: pi-compaction-control
-
-My own extension — granular per-model context-window hard cap + configurable compaction summariser model, all from `settings.json`.
-
-| | |
-|---|---|
-| Repo | https://github.com/aalexren/pi-compaction-control |
-| Install (global) | `cp -r pi-compaction-control ~/.pi/agent/extensions/` |
-| Install (npm) | `pi install npm:pi-compaction-control` |
-| Install (git) | `pi install git:github.com/aalexren/pi-compaction-control` |
-
-### Features
-
-1. **`contextCap`** — hard-cap every model's effective `contextWindow` so compaction fires earlier (at `cap − reserveTokens`). Per-model granular overrides. Mutates `ctx.model` directly (the object `shouldCompact()` reads) + sweeps the registry.
-2. **`compactionModel`** — choose which model runs pi's native compaction summariser. Supports `"current"` or `"provider/modelId"` + optional `thinkingLevel`. Reuses pi's exported `compact()` — no custom prompt.
-3. **Runtime override** — `/compaction-model` slash command redefines the compaction model mid-session (interactive picker or direct set).
-4. **Thinking-level bypass** — if the configured thinking level blows the output budget, auto-retry with `minimal` so compaction still succeeds.
-5. **Startup validation** — warns at startup if the summary budget is too small for the configured thinking level, with concrete suggested numbers.
-6. **Serviceability probes** — on every `session_start`, probes the pi internals the extension relies on (model mutability, `compact()` export, auth shape). `/compaction-control-doctor` re-runs them on demand. Warns loudly if a pi update breaks something.
-
-### Config (in `settings.json`)
+### pi-compaction-control config & commands
 
 ```json
 {
@@ -159,8 +138,6 @@ My own extension — granular per-model context-window hard cap + configurable c
   }
 }
 ```
-
-### Commands
 
 | Command | Effect |
 |---|---|
