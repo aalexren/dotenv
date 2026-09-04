@@ -16,6 +16,8 @@ Config files for language-specific development and for the environment in genera
 #### System information
 
 - [Show RAM utilization info: vm_stat, top](https://gist.github.com/aalexren/4dba2b850928077e41d3ee2840a15e5b)
+- [Interactive LSCOLORS / LS_COLORS](https://geoff.greer.fm/lscolors/)
+- [GitHub gist — color help](https://gist.github.com/aalexren/f840430608e80f1cdbf466a0c585f45e)
 
 #### Terminal shortcuts
 
@@ -176,11 +178,6 @@ Config in [`dot/.zshrc`](./dot/.zshrc) — Powerlevel10k theme, oh-my-zsh, synta
 - [Bat (better cat command)](https://github.com/sharkdp/bat)
 - [fd (easy find command)](https://github.com/sharkdp/fd)
 </details>
-
-### Colors
-
-- [Interactive LSCOLORS / LS_COLORS](https://geoff.greer.fm/lscolors/)
-- [GitHub gist — color help](https://gist.github.com/aalexren/f840430608e80f1cdbf466a0c585f45e)
 
 ---
 
