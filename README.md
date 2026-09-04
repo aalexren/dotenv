@@ -30,14 +30,33 @@ Profile exported in [`dot/iterm2.json`](./dot/iterm2.json) (import via iTerm2 �
 |---|---|
 | Terminal type | `xterm-256color` |
 | Normal font | MesloLGS NF Regular 13 |
-| Non-ASCII font | Monaco 12 |
+| Non-ASCII font | Monaco 12 (system font — not redistributable) |
 | Window | 100 × 30 |
 | Bold font | enabled |
 | Visual bell | enabled |
 | Transparency | none (opaque) |
+| Active color preset | OneHalfLight |
 
-- [Dracula theme](https://draculatheme.com/iterm)
-- [exiftool — change meta data](https://github.com/exiftool/exiftool)
+#### Fonts
+
+MesloLGS Nerd Font (the profile's normal font) is in [`dot/fonts/`](./dot/fonts):
+
+```
+MesloLGSNerdFont-Regular.ttf
+MesloLGSNerdFont-Bold.ttf
+MesloLGSNerdFont-Italic.ttf
+MesloLGSNerdFont-BoldItalic.ttf
+```
+
+Install by copying to `~/Library/Fonts/` or double-clicking each file.
+
+#### Color presets
+
+Exported as `.itermcolors` in [`dot/themes/`](./dot/themes) (import via iTerm2 → Settings → Profiles → Colors → Color Presets → Import):
+
+- [`OneHalfLight.itermcolors`](./dot/themes/OneHalfLight.itermcolors) — active preset (light)
+- [`Dracula.itermcolors`](./dot/themes/Dracula.itermcolors) — dark
+- [`GruvboxLight.itermcolors`](./dot/themes/GruvboxLight.itermcolors) — light, warm
 
 ### Homebrew
 
