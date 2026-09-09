@@ -1,6 +1,6 @@
 # LLM — Pi Coding Agent setup
 
-This folder documents my [Pi Coding Agent](https://github.com/earendil-works/pi) configuration: the agent itself, installed extensions, settings, custom extensions, and shell integration. Private keys and credentials are excluded.
+This folder documents my [Pi Coding Agent](https://github.com/earendil-works/pi) configuration: the agent itself, installed extensions, settings, and shell integration. Private keys and credentials are excluded.
 
 ---
 
@@ -8,7 +8,7 @@ This folder documents my [Pi Coding Agent](https://github.com/earendil-works/pi)
 
 | | |
 |---|---|
-| Version | `0.85.0` |
+| Version | `0.85.1` |
 | Binary | `/opt/homebrew/bin/pi` (Homebrew) |
 | Node | `v25.9.0` |
 | Config dir | `~/.pi/agent/` |
@@ -31,44 +31,78 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 ```json
 {
-  "lastChangelogVersion": "0.85.0",
+  "lastChangelogVersion": "0.85.1",
   "packages": [
     "npm:@tmustier/pi-usage-extension",
-    "npm:@tmustier/pi-tab-status",
-    "npm:pi-lens",
+    {
+      "source": "npm:@tmustier/pi-tab-status",
+      "extensions": ["-tab-status.ts"]
+    },
+    {
+      "source": "npm:pi-lens",
+      "skills": [
+        "-skills/pi-lens-ast-grep/SKILL.md",
+        "-skills/pi-lens-lsp-navigation/SKILL.md",
+        "-skills/pi-lens-write-ast-grep-rule/SKILL.md",
+        "-skills/pi-lens-write-tree-sitter-rule/SKILL.md"
+      ],
+      "extensions": ["-dist/index.js"]
+    },
     "npm:context-mode",
     "npm:pi-web-access",
     "npm:pi-powerline-footer",
-    "npm:pi-themes",
+    {
+      "source": "npm:pi-themes",
+      "themes": [
+        "-themes/dracula.json",
+        "-themes/gruvbox-dark.json",
+        "-themes/gruvbox-light.json",
+        "-themes/nord.json",
+        "-themes/one-dark.json",
+        "-themes/solarized-dark.json",
+        "-themes/solarized-light.json",
+        "-themes/tokyo-night.json"
+      ]
+    },
     "npm:pi-mcp-adapter",
-    "npm:pi-auto-resume",
-    "npm:@latentminds/pi-quotas"
+    {
+      "source": "npm:pi-auto-resume",
+      "extensions": ["-auto-resume-on-token-limit.ts"]
+    },
+    {
+      "source": "npm:@latentminds/pi-quotas",
+      "extensions": [
+        "-src/extensions/command-quotas/index.ts",
+        "-src/extensions/command-tokens/index.ts"
+      ]
+    },
+    "npm:pi-compaction-control",
+    "npm:pi-context-view"
   ],
   "defaultModel": "<provider-model>",
   "defaultThinkingLevel": "high",
   "persistModelSelection": false,
   "theme": "catppuccin-latte/catppuccin-mocha",
   "modelThinkingLevels": {
-    "<provider-model>-prod/<provider-model>": "high"
+    "<provider-model>-prod/<provider-model>": "xhigh"
   },
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "compaction": {
     "enabled": true,
     "reserveTokens": 32768,
-    "keepRecentTokens": 131072
+    "keepRecentTokens": 30000
   },
   "contextCap": {
-    "cap": 262144,
-    "appliesOver": 262144,
+    "cap": 256000,
     "matchPatterns": ["*"],
     "models": {
-      "<provider-model>": 200000
+      "<provider-model>": 144000
     },
     "notify": true
   },
   "compactionModel": {
     "model": "current",
-    "thinkingLevel": "minimal"
+    "thinkingLevel": "low"
   },
   "autoResume": {
     "enabled": true,
@@ -91,12 +125,14 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 | Setting | Value | Purpose |
 |---|---|---|
+| `modelThinkingLevels["<provider-model>-prod/<provider-model>"]` | `"xhigh"` | Max thinking budget for the default model — bumped from `high` |
+| `hideThinkingBlock` | `false` | Render thinking blocks in the TUI (was hidden) |
 | `compaction.reserveTokens` | 32768 | Tokens to reserve below the cap for the summary + reply (pi built-in) |
-| `compaction.keepRecentTokens` | 131072 | Recent tokens kept verbatim, not summarized (pi built-in) |
-| `contextCap.cap` | 262144 | Default hard cap on every model's effective context window (extension) |
-| `contextCap.models.<provider-model>` | 200000 | Per-model granular override — compaction fires at 200000 − 32768 = 167232 (extension) |
+| `compaction.keepRecentTokens` | 30000 | Recent tokens kept verbatim, not summarized (pi built-in) |
+| `contextCap.cap` | 256000 | Default hard cap on every model's effective context window (extension) |
+| `contextCap.models.<provider-model>` | 144000 | Per-model granular override — compaction fires at 144000 − 32768 = 111232 (extension) |
 | `compactionModel.model` | `"current"` | Use the active conversation model for compaction summaries (extension) |
-| `compactionModel.thinkingLevel` | `"minimal"` | Minimal thinking during summarization — fits small output budgets (extension) |
+| `compactionModel.thinkingLevel` | `"low"` | Low thinking during summarization — fits small output budgets (extension) |
 | `autoResume.enabled` | true | Auto-retry on rate-limit errors with exponential backoff (pi-auto-resume) |
 
 ---
@@ -105,36 +141,36 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 | Package | Source | What it does |
 |---|---|---|
-| [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | custom (global) | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes. Install: `cp -r pi-compaction-control ~/.pi/agent/extensions/` or `pi install npm:pi-compaction-control` |
-| [pi-lens](https://github.com/apmantza/pi-lens) | Homebrew | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
-| [context-mode](https://github.com/mksglu/context-mode) | Homebrew | Run code/commands over large outputs without flooding context; persistent KB |
-| [pi-web-access](https://github.com/nicobailon/pi-web-access) | Homebrew | Web search, fetch, claim verification, content retrieval |
+| [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | npm | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes |
+| [pi-context-view](https://github.com/dimk90/pi-context-view) | npm | Context-usage visualization + inspect hidden parts (system prompt, tool defs, extension injections); `/context` command |
+| [pi-lens](https://github.com/apmantza/pi-lens) | npm | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
+| [context-mode](https://github.com/mksglu/context-mode) | npm | Run code/commands over large outputs without flooding context; persistent KB |
+| [pi-web-access](https://github.com/nicobailon/pi-web-access) | npm | Web search, fetch, claim verification, content retrieval |
 | [pi-mcp-adapter](https://github.com/nicobailon/pi-mcp-adapter) | npm | MCP gateway — connect MCP servers (Trino, ClickHouse, etc.) |
 | [pi-auto-resume](https://github.com/kasaiarashi/pi-auto-resume) | npm | Auto-retry on rate-limit/network errors with backoff |
 | [pi-powerline-footer](https://github.com/nicobailon/pi-powerline-footer) | npm | Powerline status footer |
 | [pi-themes](https://www.npmjs.com/package/pi-themes) | npm | Catppuccin + other themes |
 | [@latentminds/pi-quotas](https://github.com/latentminds-ai/pi-quotas) | npm | Usage/quota tracking, `/quotas` + `/tokens` commands, status display |
-| [@tmustier/pi-usage-extension](https://github.com/tmustier/pi-extensions/tree/main/usage-extension) | Homebrew | Usage tracking |
-| [@tmustier/pi-tab-status](https://github.com/tmustier/pi-extensions/tree/main/tab-status) | Homebrew | Tab status display |
+| [@tmustier/pi-usage-extension](https://github.com/tmustier/pi-extensions/tree/main/usage-extension) | npm | Usage tracking |
+| [@tmustier/pi-tab-status](https://github.com/tmustier/pi-extensions/tree/main/tab-status) | npm | Tab status display |
 
 ### Tool-tax note
 
-These extensions register ~31 tools total (~16K tokens of tool schemas per request). The shell function below excludes rarely-used ones to save ~3.5K tokens.
+These 12 extensions register ~31 tools total (~16K tokens of tool schemas per request). The shell function below excludes rarely-used ones to save ~3.5K tokens.
 
 ### pi-compaction-control config & commands
 
 ```json
 {
   "contextCap": {
-    "cap": 262144,
-    "appliesOver": 262144,
+    "cap": 256000,
     "matchPatterns": ["*"],
-    "models": { "<provider-model>": 200000 },
+    "models": { "<provider-model>": 144000 },
     "notify": true
   },
   "compactionModel": {
     "model": "current",
-    "thinkingLevel": "minimal"
+    "thinkingLevel": "low"
   }
 }
 ```
@@ -221,12 +257,9 @@ No config file — using defaults (all 4 tools enabled: `web_search`, `source_ch
 ~/.pi/agent/
 ├── settings.json              # main config (packages, compaction, caps, model)
 ├── extensions/
-│   ├── pi-compaction-control/ # custom extension (see above)
-│   │   ├── index.ts
-│   │   ├── package.json
-│   │   └── README.md
-│   └── powerline-footer/
-├── npm/node_modules/          # npm-installed packages
+│   ├── powerline-footer/      # empty (footer served by npm:pi-powerline-footer)
+│   └── quotas.json            # @latentminds/pi-quotas runtime config (v0.5.0)
+├── npm/node_modules/          # npm-installed packages (incl. pi-compaction-control, pi-context-view)
 └── sessions/                  # session history
 
 ~/.pi-lens/                    # pi-lens config (defaults)
