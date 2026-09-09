@@ -183,10 +183,11 @@ Config in [`dot/.zshrc`](./dot/.zshrc) — Powerlevel10k theme, oh-my-zsh, synta
 
 ## LLM / Pi Coding Agent
 
-Full setup documented in [`llm/`](./llm) — installed extensions, `settings.json`, custom `pi-compaction-control` extension, and the `pi()` shell tool-excluder function.
+Full setup documented in [`llm/`](./llm) — installed extensions, `settings.json`, `pi-compaction-control` extension, and the `pi()` shell tool-excluder function.
 
 - [Pi Coding Agent](https://github.com/earendil-works/pi) — the agent harness
-- [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) — my custom extension (context cap + compaction model)
+- [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) — my extension (context cap + compaction model)
+- [pi-context-view](https://github.com/dimk90/pi-context-view) — context-usage visualization + inspect hidden context parts
 - [pi-lens](https://github.com/apmantza/pi-lens) — LSP diagnostics + code navigation
 - [context-mode](https://github.com/mksglu/context-mode) — run code over large outputs without flooding context
 - [pi-web-access](https://github.com/nicobailon/pi-web-access) — web search + fetch
