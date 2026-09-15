@@ -10,11 +10,12 @@ This folder documents my [Pi Coding Agent](https://github.com/earendil-works/pi)
 |---|---|
 | Version | `0.85.1` |
 | Binary | `/opt/homebrew/bin/pi` (Homebrew) |
-| Node | `v25.9.0` |
+| Node | `v26.8.2` |
 | Config dir | `~/.pi/agent/` |
 | Settings | `~/.pi/agent/settings.json` |
 | Sessions | `~/.pi/agent/sessions/` |
 | Global extensions | `~/.pi/agent/extensions/*/index.ts` (auto-discovered) |
+| Skills | `~/.pi/agent/skills/`, `~/.agents/skills/`, and package skills |
 | npm packages | `~/.pi/agent/npm/node_modules/` |
 | Docs | https://github.com/earendil-works/pi |
 
@@ -77,7 +78,8 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
       ]
     },
     "npm:pi-compaction-control",
-    "npm:pi-context-view"
+    "npm:pi-context-view",
+    "npm:pi-preferred-shell-tools"
   ],
   "defaultModel": "<provider-model>",
   "defaultThinkingLevel": "high",
@@ -143,6 +145,7 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 |---|---|---|
 | [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | npm | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes |
 | [pi-context-view](https://github.com/dimk90/pi-context-view) | npm | Context-usage visualization + inspect hidden parts (system prompt, tool defs, extension injections); `/context` command |
+| [pi-preferred-shell-tools](https://github.com/aalexren/pi-preferred-shell-tools) | npm | Prefers `rg`, `eza`, and `fd` over legacy shell tools when available; supports custom command preferences |
 | [pi-lens](https://github.com/apmantza/pi-lens) | npm | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
 | [context-mode](https://github.com/mksglu/context-mode) | npm | Run code/commands over large outputs without flooding context; persistent KB |
 | [pi-web-access](https://github.com/nicobailon/pi-web-access) | npm | Web search, fetch, claim verification, content retrieval |
@@ -154,9 +157,24 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 | [@tmustier/pi-usage-extension](https://github.com/tmustier/pi-extensions/tree/main/usage-extension) | npm | Usage tracking |
 | [@tmustier/pi-tab-status](https://github.com/tmustier/pi-extensions/tree/main/tab-status) | npm | Tab status display |
 
+## Installed skills
+
+Pi discovers skills from the two global roots below and from configured packages. Current skills:
+
+| Skill | Source | What it does |
+|---|---|---|
+| `sepia` | `~/.pi/agent/skills/sepia/` | Canonical de-AI writing skill for fiction and professional prose |
+| `sepia-write`, `sepia-review`, `sepia-refactor`, `sepia-recreate` | `~/.pi/agent/skills/sepia-*/` | Explicit Sepia operation entry points: write, diagnose, minimally revise, or fully rewrite |
+| `sepia-hemingway` | `~/.pi/agent/skills/sepia-hemingway/` | Sepia fiction writing/revision with the opt-in Hemingway voice profile |
+| `browser-skill` | `~/.agents/skills/browser-skill/` | Automate the logged-in Chromium browser through `bsk` |
+| `context-mode`: `ctx-*` | `npm:context-mode` | Skills for indexing, searching, inspecting, and maintaining the context-mode knowledge base |
+| `mcp-scripting` | `npm:pi-mcp-adapter` | Write JavaScript for discovering and calling MCP tools |
+
+The four `pi-lens` skills are installed but explicitly excluded by the settings filter shown above.
+
 ### Tool-tax note
 
-These 12 extensions register ~31 tools total (~16K tokens of tool schemas per request). The shell function below excludes rarely-used ones to save ~3.5K tokens.
+These 13 extensions register ~31 tools total (~16K tokens of tool schemas per request). The shell function below excludes rarely-used ones to save ~3.5K tokens.
 
 ### pi-compaction-control config & commands
 
@@ -260,7 +278,11 @@ No config file — using defaults (all 4 tools enabled: `web_search`, `source_ch
 │   ├── powerline-footer/      # empty (footer served by npm:pi-powerline-footer)
 │   └── quotas.json            # @latentminds/pi-quotas runtime config (v0.5.0)
 ├── npm/node_modules/          # npm-installed packages (incl. pi-compaction-control, pi-context-view)
+├── skills/                    # six Sepia skills
 └── sessions/                  # session history
+
+~/.agents/skills/
+└── browser-skill/SKILL.md     # Chromium automation skill
 
 ~/.pi-lens/                    # pi-lens config (defaults)
 ~/.pi/web-search.json          # pi-web-access config (defaults)
