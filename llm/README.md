@@ -146,6 +146,7 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 | [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | npm | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes |
 | [pi-context-view](https://github.com/dimk90/pi-context-view) | npm | Context-usage visualization + inspect hidden parts (system prompt, tool defs, extension injections); `/context` command |
 | [pi-preferred-shell-tools](https://github.com/aalexren/pi-preferred-shell-tools) | npm | Prefers `rg`, `eza`, and `fd` over legacy shell tools when available; supports custom command preferences |
+| [Sepia](https://github.com/Nanako0129/sepia) | global skills | De-AI writing extension with operation and Hemingway voice entry points |
 | [pi-lens](https://github.com/apmantza/pi-lens) | npm | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
 | [context-mode](https://github.com/mksglu/context-mode) | npm | Run code/commands over large outputs without flooding context; persistent KB |
 | [pi-web-access](https://github.com/nicobailon/pi-web-access) | npm | Web search, fetch, claim verification, content retrieval |
@@ -159,18 +160,14 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 ## Installed skills
 
-Pi discovers skills from the two global roots below and from configured packages. Current skills:
+Pi discovers skills from the two global roots below and from configured packages. Current non-extension skills:
 
 | Skill | Source | What it does |
 |---|---|---|
-| `sepia` | `~/.pi/agent/skills/sepia/` | Canonical de-AI writing skill for fiction and professional prose |
-| `sepia-write`, `sepia-review`, `sepia-refactor`, `sepia-recreate` | `~/.pi/agent/skills/sepia-*/` | Explicit Sepia operation entry points: write, diagnose, minimally revise, or fully rewrite |
-| `sepia-hemingway` | `~/.pi/agent/skills/sepia-hemingway/` | Sepia fiction writing/revision with the opt-in Hemingway voice profile |
-| `browser-skill` | `~/.agents/skills/browser-skill/` | Automate the logged-in Chromium browser through `bsk` |
-| `context-mode`: `ctx-*` | `npm:context-mode` | Skills for indexing, searching, inspecting, and maintaining the context-mode knowledge base |
-| `mcp-scripting` | `npm:pi-mcp-adapter` | Write JavaScript for discovering and calling MCP tools |
+| [`browser-skill`](https://github.com/Tencent/BrowserSkill) | `~/.agents/skills/browser-skill/` | Automate the logged-in Chromium browser through `bsk` |
+| [`mcp-scripting`](https://github.com/nicobailon/pi-mcp-adapter) | `npm:pi-mcp-adapter` | Write JavaScript for discovering and calling MCP tools |
 
-The four `pi-lens` skills are installed but explicitly excluded by the settings filter shown above.
+The four [`pi-lens`](https://github.com/apmantza/pi-lens) skills are installed but explicitly excluded by the settings filter shown above.
 
 ### Tool-tax note
 
@@ -278,7 +275,7 @@ No config file — using defaults (all 4 tools enabled: `web_search`, `source_ch
 │   ├── powerline-footer/      # empty (footer served by npm:pi-powerline-footer)
 │   └── quotas.json            # @latentminds/pi-quotas runtime config (v0.5.0)
 ├── npm/node_modules/          # npm-installed packages (incl. pi-compaction-control, pi-context-view)
-├── skills/                    # six Sepia skills
+├── skills/                    # Sepia skill bundle
 └── sessions/                  # session history
 
 ~/.agents/skills/
