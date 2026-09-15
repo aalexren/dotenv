@@ -166,7 +166,6 @@ Pi discovers skills from the two global roots below and from configured packages
 | [Benjamin-Plus](https://github.com/JetBrains/benjamin-plus-skill) | `~/.benjamin-plus/` | Token-efficient lookup and context-management rules for coding agents |
 | [Sepia](https://github.com/Nanako0129/sepia) | `~/.pi/agent/skills/sepia/` | De-AI writing skill; its operation and Hemingway entry points are included here |
 | [`browser-skill`](https://github.com/Tencent/BrowserSkill) | `~/.agents/skills/browser-skill/` | Automate the logged-in Chromium browser through `bsk` |
-| [`mcp-scripting`](https://github.com/nicobailon/pi-mcp-adapter) | `npm:pi-mcp-adapter` | Write JavaScript for discovering and calling MCP tools |
 
 The four [`pi-lens`](https://github.com/apmantza/pi-lens) skills are installed but explicitly excluded by the settings filter shown above.
 
