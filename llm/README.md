@@ -15,7 +15,7 @@ This folder documents my [Pi Coding Agent](https://github.com/earendil-works/pi)
 | Settings | `~/.pi/agent/settings.json` |
 | Sessions | `~/.pi/agent/sessions/` |
 | Global extensions | `~/.pi/agent/extensions/*/index.ts` (auto-discovered) |
-| Skills | `~/.pi/agent/skills/`, `~/.agents/skills/`, and package skills |
+| Skills | `~/.benjamin-plus/`, `~/.pi/agent/skills/`, `~/.agents/skills/`, and package skills |
 | npm packages | `~/.pi/agent/npm/node_modules/` |
 | Docs | https://github.com/earendil-works/pi |
 
@@ -143,10 +143,9 @@ Credentials and provider-specific model identifiers are redacted (`<provider-mod
 
 | Package | Source | What it does |
 |---|---|---|
-| [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | npm | **My extension.** Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes |
+| [pi-compaction-control](https://github.com/aalexren/pi-compaction-control) | npm | Per-model context-window hard cap + configurable compaction summariser model. `/compaction-model` runtime override, thinking-level bypass, startup validation, `/compaction-control-doctor` serviceability probes |
 | [pi-context-view](https://github.com/dimk90/pi-context-view) | npm | Context-usage visualization + inspect hidden parts (system prompt, tool defs, extension injections); `/context` command |
 | [pi-preferred-shell-tools](https://github.com/aalexren/pi-preferred-shell-tools) | npm | Prefers `rg`, `eza`, and `fd` over legacy shell tools when available; supports custom command preferences |
-| [Sepia](https://github.com/Nanako0129/sepia) | global skills | De-AI writing extension with operation and Hemingway voice entry points |
 | [pi-lens](https://github.com/apmantza/pi-lens) | npm | LSP diagnostics, code navigation, turn-end error advisory, read-guard |
 | [context-mode](https://github.com/mksglu/context-mode) | npm | Run code/commands over large outputs without flooding context; persistent KB |
 | [pi-web-access](https://github.com/nicobailon/pi-web-access) | npm | Web search, fetch, claim verification, content retrieval |
@@ -164,6 +163,8 @@ Pi discovers skills from the two global roots below and from configured packages
 
 | Skill | Source | What it does |
 |---|---|---|
+| [Benjamin-Plus](https://github.com/JetBrains/benjamin-plus-skill) | `~/.benjamin-plus/` | Token-efficient lookup and context-management rules for coding agents |
+| [Sepia](https://github.com/Nanako0129/sepia) | `~/.pi/agent/skills/sepia/` | De-AI writing skill; its operation and Hemingway entry points are included here |
 | [`browser-skill`](https://github.com/Tencent/BrowserSkill) | `~/.agents/skills/browser-skill/` | Automate the logged-in Chromium browser through `bsk` |
 | [`mcp-scripting`](https://github.com/nicobailon/pi-mcp-adapter) | `npm:pi-mcp-adapter` | Write JavaScript for discovering and calling MCP tools |
 
@@ -280,6 +281,8 @@ No config file — using defaults (all 4 tools enabled: `web_search`, `source_ch
 
 ~/.agents/skills/
 └── browser-skill/SKILL.md     # Chromium automation skill
+
+~/.benjamin-plus/              # Benjamin-Plus skill and injected rules
 
 ~/.pi-lens/                    # pi-lens config (defaults)
 ~/.pi/web-search.json          # pi-web-access config (defaults)
